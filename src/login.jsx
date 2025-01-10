@@ -75,7 +75,7 @@ const Login = () => {
           </button>
         </div>
       ) : (
-        <div>
+        <>
           <div className="page-header">
             <h1>{authUser.email}</h1>
             <button className="button-logout" onClick={handleLogout}>
@@ -83,7 +83,7 @@ const Login = () => {
             </button>
           </div>
           <Host />
-        </div>
+        </>
       )}
     </div>
   );

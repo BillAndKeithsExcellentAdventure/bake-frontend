@@ -8,11 +8,11 @@ import { UserProvider } from './UserContext';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <UserProvider>
         <Login />
       </UserProvider>
-    </div>
+    </>
   );
 }
 

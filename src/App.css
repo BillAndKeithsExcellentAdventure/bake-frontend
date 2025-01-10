@@ -226,28 +226,84 @@ h1 {
   align-items: center;
 }
 
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
+.table-container {
+  display: flex;
+  width: 100%; /* Adjust to your needs */
+  overflow: hidden; /* Hide overflow of the entire table */
 }
 
-th, td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
+table,
+.divTable {
+  border: 1px solid lightgray;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-th {
-  background-color: #f4f4f4;
+.tbody {
+flex-grow: 1;
+overflow-y: auto;
+overflow-x: hidden;
 }
 
-.pagination {
-  margin-top: 20px;
+.tr {
+  display: flex;
 }
 
-.pagination button {
-  padding: 5px 10px;
-  margin: 0 5px;
+tr,
+.tr {
+  width: fit-content;
+  height: 30px;
+}
+
+th,
+.th,
+td,
+.td {
+  box-shadow: inset 0 0 0 1px lightgray;
+  padding: 0.25rem;
+}
+
+th,
+.th {
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  height: 30px;
+}
+
+td,
+.td {
+  height: 30px;
+}
+
+.resizer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  right: 0;
+  width: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.resizer.isResizing {
+  background: blue;
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .resizer {
+    opacity: 0;
+  }
+
+  *:hover > .resizer {
+    opacity: 1;
+  }
 }

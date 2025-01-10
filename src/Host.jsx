@@ -7,7 +7,7 @@ import Users from './Users';
 
 const VerticalMenu = () => {
   return (
-    <div>
+    <>
       {/* Vertical Menu */}
       <nav className="vertical-menu">
         <ul>
@@ -47,15 +47,13 @@ const VerticalMenu = () => {
       </nav>
 
       {/* Main content */}
-      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </div>
-    </div>
+      </>
   );
 };
 
