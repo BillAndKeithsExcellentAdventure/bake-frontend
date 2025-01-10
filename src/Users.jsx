@@ -44,7 +44,7 @@ const defaultColumns = [
   }),
 ];
 
-const TableWithFooter = () => {
+const UsersTable = () => {
   const [data, _setData] = React.useState(() => [...defaultData]);
   const [columns] = React.useState(() => [...defaultColumns]);
 
@@ -225,4 +225,4 @@ export const MemoizedTableBody = React.memo(
   (prev, next) => prev.table.options.data === next.table.options.data
 );
 
-export default TableWithFooter;
+export default UsersTable;
