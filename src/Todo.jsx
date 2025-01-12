@@ -10,7 +10,7 @@ const Todo = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await fetch('http://localhost:5050/api/v1/todos', {
+        const response = await fetch('/api/v1/todos', {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -40,7 +40,7 @@ const Todo = () => {
     if (!thisTodo) return;
 
     try {
-      const response = await fetch(`http://localhost:5050/api/v1/todos/${id}`, {
+      const response = await fetch(`/api/v1/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const Todo = () => {
 
       if (response.ok) {
         const fetchResponse = await fetch(
-          'http://localhost:5050/api/v1/todos',
+          'api/v1/todos',
           {
             headers: {
               Authorization: `Bearer ${authToken}`,
@@ -76,7 +76,7 @@ const Todo = () => {
     if (!thisTodo) return;
 
     try {
-      const response = await fetch(`http://localhost:5050/api/v1/todos/${id}`, {
+      const response = await fetch(`/api/v1/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const Todo = () => {
 
       if (response.ok) {
         const fetchResponse = await fetch(
-          'http://localhost:5050/api/v1/todos',
+          '/api/v1/todos',
           {
             headers: {
               Authorization: `Bearer ${authToken}`,
@@ -118,7 +118,7 @@ const Todo = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5050/api/v1/todos', {
+      const response = await fetch('/api/v1/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -128,7 +128,7 @@ const Todo = () => {
       });
 
       if (response.ok) {
-        const response = await fetch('http://localhost:5050/api/v1/todos', {
+        const response = await fetch('/api/v1/todos', {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -148,7 +148,7 @@ const Todo = () => {
   // Delete a todo
   const deleteTodo = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5050/api/v1/todos/${id}`, {
+      const response = await fetch(`/api/v1/todos/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${authToken}`,
