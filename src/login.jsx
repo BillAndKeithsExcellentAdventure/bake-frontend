@@ -17,7 +17,7 @@ const Login = () => {
   const { authUser, login, logout } = useContext(UserContext);
 
   // Access the API URL using import.meta.env
-  const apiUrl = ''; // import.meta.env.VITE_API_URL;
+  const apiUrl = 'https://wgstodo.azurewebsites.net'; // import.meta.env.VITE_API_URL;
 
   const handleLogin = () => {
     // Redirect to backend's Google OAuth route
