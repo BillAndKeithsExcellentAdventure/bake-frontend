@@ -17,7 +17,7 @@ const Login = () => {
   const { authUser, login, logout } = useContext(UserContext);
 
   // Access the API URL using import.meta.env
-  const apiUrl = process.env.VITE_API_URL;
+  const apiUrl = ''; // import.meta.env.VITE_API_URL;
 
   const handleLogin = () => {
     // Redirect to backend's Google OAuth route
