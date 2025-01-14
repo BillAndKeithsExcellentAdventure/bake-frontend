@@ -1,0 +1,15 @@
+{
+  "routes": [
+    {
+      "route": "/api",
+      "methods": [
+        "get",
+        "post",
+        "delete",
+        "head",
+        "put"
+      ],
+      "rewrite": "https://wgstodo.azurewebsites.net/api"
+    }
+  ]
+}
