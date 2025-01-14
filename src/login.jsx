@@ -17,7 +17,7 @@ const Login = () => {
   const { authUser, login, logout } = useContext(UserContext);
 
   // Access the API URL using import.meta.env
-  const apiUrl = 'https://wgstodo.azurewebsites.net'; // import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL || 'https://wgstodo.azurewebsites.net';
 
   const handleLogin = () => {
     // Redirect to backend's Google OAuth route
@@ -41,20 +41,20 @@ const Login = () => {
   const handleLogout = async () => {
     try {
       // Clear session (this would typically involve a logout endpoint on the server)
+      // TODO - server session is not currently implemented need Redis or similar
+      // const response = await fetch(`${apiUrl}/api/v1/auth/logout`, {
+      //   credentials: 'include',
+      //   body: JSON.stringify({}),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
 
-      const response = await fetch(`${apiUrl}/api/v1/auth/logout`, {
-        credentials: 'include',
-        body: JSON.stringify({}),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        logout();
-      } else {
-        throw new Error('Logout failed');
-      }
+      //if (response.ok) {
+      logout();
+      //} else {
+      //  throw new Error('Logout failed');
+      //}
     } catch (err) {
       console.error('Logout error', err);
     }

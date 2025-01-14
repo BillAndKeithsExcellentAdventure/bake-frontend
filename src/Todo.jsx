@@ -7,7 +7,8 @@ const Todo = () => {
   const [taskTitle, setTaskTitle] = useState('');
 
   // Access the API URL using import.meta.env
-  const apiUrl = 'https://wgstodo.azurewebsites.net'; //import.meta.env.VITE_API_URL;
+  const apiUrl =
+    import.meta.env.VITE_API_URL || 'https://wgstodo.azurewebsites.net';
 
   // Fetch todos from the backend
   useEffect(() => {
@@ -113,6 +114,8 @@ const Todo = () => {
       setTaskTitle('');
       return;
     }
+    const newTodo = { title: taskTitle, completed: false };
+    setTaskTitle('');
 
     try {
       const response = await fetch(`${apiUrl}/api/v1/todos`, {
@@ -121,7 +124,7 @@ const Todo = () => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${authToken}`,
         },
-        body: JSON.stringify({ title: taskTitle }),
+        body: JSON.stringify(newTodo),
       });
 
       if (response.ok) {
@@ -179,7 +182,12 @@ const Todo = () => {
           type="text"
           value={taskTitle}
           onChange={(e) => setTaskTitle(e.target.value)}
-          onKeyDown={(e) => e.key == 'Enter' && addTodo()}
+          onKeyDown={(e) => {
+            if (e.key == 'Enter') {
+              addTodo();
+              setTaskTitle('');
+            }
+          }}
           onBlur={(e) => addTodo()}
           placeholder="Add new todo"
         />
